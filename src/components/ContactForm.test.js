@@ -60,8 +60,6 @@ test('renders ONE error message if user enters a valid first name and last name 
     render(<ContactForm />)
     // Act
 
-    const emailErrorMessage = screen.queryByText('Error: email must be a valid email address.')
-
     const fNameInput = screen.queryByLabelText('First Name*') 
     const lNameInput = screen.queryByLabelText('Last Name*') 
     userEvent.type(fNameInput, "Peter")
@@ -69,6 +67,8 @@ test('renders ONE error message if user enters a valid first name and last name 
 
     const button = screen.getByRole("button");
     userEvent.click(button);
+
+    const emailErrorMessage = screen.queryByText('Error: email must be a valid email address.')
 
     // Assert
 
