@@ -156,6 +156,32 @@ test('renders all fields text when all fields are submitted.', async () => {
     // Arrange
     render(<ContactForm />)
     // Act
+
+    const fNameInput = screen.queryByLabelText('First Name*') 
+    userEvent.type(fNameInput, "Peter")
+    const lNameInput = screen.queryByLabelText('Last Name*') 
+    userEvent.type(lNameInput, "Conley")
+    const emailInput = screen.queryByLabelText('Email*') 
+    userEvent.type(emailInput, "Peter@gmail.com")
+    const messageInput = screen.queryByLabelText('Message')
+    userEvent.type(messageInput, "Hello there!")
+
+    // Submit fields
+
+    const button = screen.getByRole("button");
+    userEvent.click(button);
+
+    const fNameValue = screen.getByText('Peter')
+    const lNameValue = screen.getByText('Conley')
+    const emailValue = screen.getByText('Peter@gmail.com')
+    const messageValue = screen.getByText('Hello there!')
+
     // Assert
+
+    expect(fNameValue).toBeInTheDocument();
+    expect(lNameValue).toBeInTheDocument();
+    expect(emailValue).toBeInTheDocument();
+    expect(messageValue).toBeInTheDocument();
+
 
 });
