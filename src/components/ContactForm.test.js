@@ -106,7 +106,17 @@ test('renders "lastName is a required field" if an last name is not entered and 
     // Arrange
     render(<ContactForm />)
     // Act
+    const fNameInput = screen.queryByLabelText('First Name*') 
+    userEvent.type(fNameInput, "Peter")
+    const emailInput = screen.queryByLabelText('Email*') 
+    userEvent.type(emailInput, "Peter@gmail.com")
+    const button = screen.getByRole("button");
+    userEvent.click(button);
+    const lNameErrorMessage = screen.queryByText('Error: lastName is a required field.')
+
     // Assert
+
+    expect(lNameErrorMessage).toBeInTheDocument();
 
 });
 
