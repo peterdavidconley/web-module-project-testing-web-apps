@@ -25,9 +25,10 @@ test('renders ONE error message if user enters less then 5 characters into first
     // Arrange
     render(<ContactForm />)
     // Act
-    const nameErrorMessage = screen.queryByText('Error: firstName must have at least 5 characters.')
     const button = screen.getByRole("button");
     userEvent.click(button);
+    const nameErrorMessage = screen.queryByText('Error: firstName must have at least 5 characters.')
+
 
     // Assert
     expect(nameErrorMessage).toBeInTheDocument()
