@@ -123,7 +123,31 @@ test('renders all firstName, lastName and email text when submitted. Does NOT re
     // Arrange
     render(<ContactForm />)
     // Act
+
+    const fNameInput = screen.queryByLabelText('First Name*') 
+    userEvent.type(fNameInput, "Peter")
+    const lNameInput = screen.queryByLabelText('Last Name*') 
+    userEvent.type(lNameInput, "Conley")
+    const emailInput = screen.queryByLabelText('Email*') 
+    userEvent.type(emailInput, "Peter@gmail.com")
+
+    // Submit fields
+
+    const button = screen.getByRole("button");
+    userEvent.click(button);
+
+    // Getters
+
+    const fNameValue = screen.getByText('Peter')
+    const lNameValue = screen.getByText('Conley')
+    const emailValue = screen.getByText('Peter@gmail.com')
+
     // Assert
+
+    expect(fNameValue).toBeInTheDocument();
+    expect(lNameValue).toBeInTheDocument();
+    expect(emailValue).toBeInTheDocument();
+
 
 });
 
