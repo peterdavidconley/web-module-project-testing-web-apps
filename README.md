@@ -23,9 +23,9 @@ As a developer, you will be writing tests for every component. As we've learned,
 
 ## Instructions
 ### Task 1: Project Set Up
-* [ ] Create a forked copy of this project.
-* [ ] Clone your OWN version of the repository in your terminal
-* [ ] cd into the project base directory `cd web-module-project-reducer-pattern`
+* [x] Create a forked copy of this project.
+* [x] Clone your OWN version of the repository in your terminal
+* [x] cd into the project base directory `cd web-module-project-reducer-pattern`
 * [ ] Download project dependencies by running `npm install`
 * [ ] Start up the app using `npm start`
 - [ ] In a new terminal window, run `npm test`
