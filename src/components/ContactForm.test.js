@@ -29,7 +29,6 @@ test('renders ONE error message if user enters less then 5 characters into first
     userEvent.click(button);
     const nameErrorMessage = screen.queryByText('Error: firstName must have at least 5 characters.')
 
-
     // Assert
     expect(nameErrorMessage).toBeInTheDocument()
 
@@ -41,14 +40,12 @@ test('renders THREE error messages if user enters no values into any fields.', a
     render(<ContactForm />)
     // Act
 
+    const button = screen.getByRole("button");
+    userEvent.click(button);
+
     const fNameErrorMessage = screen.queryByText('Error: firstName must have at least 5 characters.')
     const lNameErrorMessage = screen.queryByText('Error: lastName is a required field.')
     const emailErrorMessage = screen.queryByText('Error: email must be a valid email address.')
-
-    // 1. Find button
-    const button = screen.getByRole("button");
-    // 2. Click button
-    userEvent.click(button);
 
     // Assert
     expect(fNameErrorMessage).toBeInTheDocument()
